@@ -21,6 +21,6 @@ p1-bot.ru {
     }
 }
 
-www.my-domain.com {
+www.p1-bot.ru {
     redir https://p1-bot.ru{uri} permanent
 }
