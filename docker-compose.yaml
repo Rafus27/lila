@@ -36,8 +36,8 @@ services:
     container_name: coturn
     restart: unless-stopped
     network_mode: host
-    env_file:
-      - ./coturn/.env
+    # env_file:
+    #   - ./coturn/.env
     volumes:
       - ./coturn/turnserver.conf:/etc/coturn/turnserver.conf:ro
       - caddy_data:/etc/coturn/ssl:ro
