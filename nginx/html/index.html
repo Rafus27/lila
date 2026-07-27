@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Lila</title>
+</head>
+
+<body>
+
+    <section id="lobby" style="display: flex;">
+        <div class="background-container">
+            <img src="./media/images/background-1.webp" alt="lobby background">
+        </div>
+
+        <div class="navigation">
+            <button id="create-game">Создать Игру</button>
+            <input type="text" placeholder="ID Игры" id="game-id">
+            <button id="join-game">Присоединиться</button>
+            <button id="reconnect">Переподключиться</button>
+        </div>
+
+        <div class="background-container">
+            <img src="./media/images/background-2.webp" alt="lobby background">
+        </div>
+    </section>
+
+    <div class="avatar-inputs" id="avatar-inputs" style="display: none;">
+        <div class="avatar-inputs-container">
+            <h2>Аватар</h2>
+            <input type="text" id="input-name" placeholder="Имя">
+            <p style="color: #6e6e6e">Цвет фишки</p>
+            <div class="colors">
+
+                <div class="color-btn">
+                    <input type="radio" name="color" id="violet" value="#B659A2">
+                    <label for="violet" id="violet-btn"></label>
+                </div>
+
+                <div class="color-btn">
+                    <input type="radio" name="color" id="purple" value="#676BB1">
+                    <label for="purple" id="purple-btn"></label>
+                </div>
+
+                <div class="color-btn">
+                    <input type="radio" name="color" id="blue" value="#3EB2E6">
+                    <label for="blue" id="blue-btn"></label>
+                </div>
+
+                <div class="color-btn">
+                    <input type="radio" name="color" id="green" value="#A2CE47">
+                    <label for="green" id="green-btn"></label>
+                </div>
+
+                <div class="color-btn">
+                    <input type="radio" name="color" id="yellow" value="#FED548">
+                    <label for="yellow" id="yellow-btn"></label>
+                </div>
+
+                <div class="color-btn">
+                    <input type="radio" name="color" id="orange" value="#F38334">
+                    <label for="orange" id="orange-btn"></label>
+                </div>
+
+                <div class="color-btn">
+                    <input type="radio" name="color" id="red" value="#EF3A44">
+                    <label for="red" id="red-btn"></label>
+                </div>
+            </div>
+            <textarea name="" id="input-request" placeholder="Запрос"></textarea>
+            <!-- <input type="text" id="input-request" placeholder="Запрос"> -->
+            <button id="submit">Выбрать</button>
+        </div>
+    </div>
+
+    <section id="game" style="display: none;">
+        <div class="container">
+            <div id="field">
+                <div class="row">
+                    <div id="72"></div>
+                    <div id="71"></div>
+                    <div id="70"></div>
+                    <div id="69"></div>
+                    <div id="68"></div>
+                    <div id="67"></div>
+                    <div id="66"></div>
+                    <div id="65"></div>
+                    <div id="64"></div>
+                </div>
+                <div class="row">
+                    <div id="55"></div>
+                    <div id="56"></div>
+                    <div id="57"></div>
+                    <div id="58"></div>
+                    <div id="59"></div>
+                    <div id="60"></div>
+                    <div id="61"></div>
+                    <div id="62"></div>
+                    <div id="63"></div>
+                </div>
+                <div class="row">
+                    <div id="54"></div>
+                    <div id="53"></div>
+                    <div id="52"></div>
+                    <div id="51"></div>
+                    <div id="50"></div>
+                    <div id="49"></div>
+                    <div id="48"></div>
+                    <div id="47"></div>
+                    <div id="46"></div>
+                </div>
+                <div class="row">
+                    <div id="37"></div>
+                    <div id="38"></div>
+                    <div id="39"></div>
+                    <div id="40"></div>
+                    <div id="41"></div>
+                    <div id="42"></div>
+                    <div id="43"></div>
+                    <div id="44"></div>
+                    <div id="45"></div>
+                </div>
+                <div class="row">
+                    <div id="36"></div>
+                    <div id="35"></div>
+                    <div id="34"></div>
+                    <div id="33"></div>
+                    <div id="32"></div>
+                    <div id="31"></div>
+                    <div id="30"></div>
+                    <div id="29"></div>
+                    <div id="28"></div>
+                </div>
+                <div class="row">
+                    <div id="19"></div>
+                    <div id="20"></div>
+                    <div id="21"></div>
+                    <div id="22"></div>
+                    <div id="23"></div>
+                    <div id="24"></div>
+                    <div id="25"></div>
+                    <div id="26"></div>
+                    <div id="27"></div>
+                </div>
+                <div class="row">
+                    <div id="18"></div>
+                    <div id="17"></div>
+                    <div id="16"></div>
+                    <div id="15"></div>
+                    <div id="14"></div>
+                    <div id="13"></div>
+                    <div id="12"></div>
+                    <div id="11"></div>
+                    <div id="10"></div>
+                </div>
+                <div class="row">
+                    <div id="1"></div>
+                    <div id="2"></div>
+                    <div id="3"></div>
+                    <div id="4"></div>
+                    <div id="5"></div>
+                    <div id="6"></div>
+                    <div id="7"></div>
+                    <div id="8"></div>
+                    <div id="9">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="inner-container">
+                <div id="video-holder">
+                    <div class="current-video">
+                        <video src="" autoplay controls id="admin-video"></video>
+                        <video src="" autoplay controls id="1-video"></video>
+                    </div>
+                    <div class="reserve-video">
+                        <video src="" autoplay controls id="2-video"></video>
+                        <video src="" autoplay controls id="3-video"></video>
+                        <video src="" autoplay controls id="4-video"></video>
+                        <!-- <video src="" autoplay id="5-video"></video> -->
+                    </div>
+                </div>
+
+                <div id="controls">
+                    <div class="current-player">
+                        <div class="current-info">
+                            <div id="current-color">
+                                <h2 id="current-position"></h2>
+                            </div>
+                            <div id="current-name"></div>
+                        </div>
+
+                        <div class="current-request">
+                            <h3>Запрос:</h3>
+                            <div class="current-request-holder">
+                                <p id="current-request"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <button id="action">
+                            <img id="dice-img" src="media/images/dice.png" alt="dice">
+                            <img id="move-img" src="media/images/move.png" alt="move">
+                            <img id="next-img" src="media/images/next.png" alt="next">
+                            <img id="start-img" src="media/images/start.png" alt="start">
+                        </button>
+                        <div class="admin-functions">
+                            <button id="skip" disabled>
+                                <img src="media/images/skip.png" alt="skip">
+                            </button>
+                            <button id="pause" disabled>
+                                <img src="media/images/pause.png" alt="pause">
+                            </button>
+                            <button id="set-position" disabled>
+                                <img src="media/images/set_position.png" alt="set position">
+                            </button>
+                            <button id="ban" disabled>
+                                <img src="media/images/ban.png" alt="ban">
+                            </button>
+                        </div>
+                        <div class="cards">
+                            <button id="help" disabled>Подсказка</button>
+                            <button id="resource" disabled>Ресурс</button>
+                            <button id="wisdom" disabled>Мудрость</button>
+                            <button id="game-link">Ссылка</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="info" style="display: none;">
+
+        <div class="container" id="players-list">
+        </div>
+
+        <div class="container">
+
+            <div id="player-info">
+                <div class="player-info-container">
+                    <h3>Имя:</h3>
+                    <div id="player-name"></div>
+                </div>
+
+                <div class="player-info-container">
+                    <h3>Цвет:</h3>
+                    <div id="player-color"></div>
+                </div>
+
+                <div class="player-info-container">
+                    <h3>Статус:</h3>
+                    <div id="player-status"></div>
+                </div>
+
+                <div class="player-info-container">
+                    <h3>Запрос:</h3>
+                    <div id="player-request"></div>
+                </div>
+
+                <div class="player-info-container">
+                    <h3>Позиция:</h3>
+                    <div id="player-position"></div>
+                </div>
+
+                <div class="player-info-container">
+                    <h3>Кость:</h3>
+                    <div id="player-dice"></div>
+                </div>
+
+            </div>
+
+            <div class="history">
+                <h3>История:</h3>
+                <div id="player-history">
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+
+
+
+</body>
+
+</html>

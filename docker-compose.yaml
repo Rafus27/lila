@@ -1,0 +1,52 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: node_js
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    ports:
+      - "3000:3000"
+    command: ["node", "server.js"]
+    networks:
+      - app-network
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./nginx/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./nginx/html:/usr/share/caddy/html:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - app-network
+
+  coturn:
+    image: coturn/coturn:latest
+    container_name: coturn
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - ./coturn/.env
+    volumes:
+      - ./coturn/turnserver.conf:/etc/coturn/turnserver.conf:ro
+      - caddy_data:/etc/coturn/ssl:ro
+    command: ["-c", "/etc/coturn/turnserver.conf"]
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  caddy_data:
+  caddy_config:
