@@ -1,7 +1,7 @@
 p1-bot.ru {
     encode gzip
 
-    handle /api/* {
+    handle /api* {
         reverse_proxy backend:3000 {
             header_up Host {host}
             header_up X-Real-IP {remote_host}
