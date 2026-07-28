@@ -36,6 +36,9 @@ services:
     container_name: coturn
     restart: unless-stopped
     network_mode: host
+    depends_on: 
+      caddy:
+        condition: service_healthy
     # env_file:
     #   - ./coturn/.env
     volumes:
