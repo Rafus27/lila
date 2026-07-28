@@ -17,6 +17,11 @@ services:
     image: caddy:2-alpine
     container_name: caddy
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "caddy", "validate"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
     depends_on:
       - backend
     ports:
