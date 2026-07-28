@@ -18,7 +18,7 @@ services:
     container_name: caddy
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "caddy", "validate"]
+      test: ["CMD", "caddy", "validate", "--config", "/etc/caddy/Caddyfile"]
       interval: 10s
       timeout: 5s
       retries: 3
