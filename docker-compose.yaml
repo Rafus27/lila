@@ -39,7 +39,7 @@ services:
     # env_file:
     #   - ./coturn/.env
     volumes:
-      - ./coturn/turnserver.conf:/etc/coturn/turnserver.conf:ro
+      - ./turnserver.conf:/etc/coturn/turnserver.conf:ro
       - caddy_data:/etc/coturn/ssl:ro
     command: ["-c", "/etc/coturn/turnserver.conf"]
 
